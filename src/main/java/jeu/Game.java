@@ -40,7 +40,7 @@ private static ArrayList<Sorts> sortsList = new ArrayList<Sorts>();
                 personnages.add(creePerso());//stockage de mes personnages dans un tableau
 //                armesList.add(perso.getArme());
             } else if (choixUtilisateur.equals("2")) {
-                System.out.println("Que voulez-vous faire maintenant :\n\t1- Afficher les personnages\n\t2- Modifier Guerrier\n\t3- Modifier Magicien\n\t4- Attaquer\n\t5- Afficher les armes\n\t6- Afficher les sorts\n\t7- Sortir");
+                System.out.println("Que voulez-vous faire maintenant :\n\t1- Afficher les personnages\n\t2- Modifier Guerrier\n\t3- Modifier Magicien\n\t4- Attaquer\n\t5- Afficher les armes\n\t6- Afficher les sorts\n\t7- Crée une arme\n\t8- Sortir");
                 String ChoixPerso = sc.nextLine();
                 boolean goMenu = true;
                 while (goMenu) {
@@ -74,7 +74,10 @@ private static ArrayList<Sorts> sortsList = new ArrayList<Sorts>();
                         for (int i = 0; i < sortsList.size(); i++) {
                             System.out.println("<-----------------> " + "\n" + i + " = " + sortsList.get(i).toString());
                         }  goMenu = false;
-                    }else if (ChoixPerso.equals("7")) {////sortie
+                    }else if (ChoixPerso.equals("7")) {////crée une arme
+                        creeArme();
+                        goMenu = false;
+                    } else if (ChoixPerso.equals("8")) {////sortie
                         goMenu = false;
                     } else {////erreur de saisie
                         System.out.println("<----------------------->");
@@ -349,4 +352,16 @@ private static ArrayList<Sorts> sortsList = new ArrayList<Sorts>();
             }
         }
     }
+    private static Armes creeArme(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("<----------------------->");
+        System.out.println("Nom de l'arme :");
+        String nomArme = sc.nextLine();
+        System.out.println("Puissance de l'arme :");
+        int puissance = scannerInput.nextInt();
+        Armes armes = new Armes(nomArme, puissance);
+        armesList.add(armes);
+        return armes;
+    }
 }
+
