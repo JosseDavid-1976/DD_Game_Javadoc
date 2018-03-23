@@ -79,6 +79,7 @@ private static ArrayList<Sorts> sortsList = new ArrayList<Sorts>();
                     } else {////erreur de saisie
                         System.out.println("<----------------------->");
                         System.out.println("7 choix seulement : 1 -2 - 3 - 4 - 5 - 6 - 7");
+                        goMenu = false;
                     }
                 }
             } else if (choixUtilisateur.equals("3")) {
@@ -162,7 +163,7 @@ private static ArrayList<Sorts> sortsList = new ArrayList<Sorts>();
                 String PhiltreMagicien = sc.nextLine();
                 boolean philtre = Boolean.valueOf(PhiltreMagicien);
                 Magicien  mag = new Magicien(nom, img, vie, attaque, sorts, philtre);
-                personnages.add(mag);
+//                personnages.add(mag);
                     return mag;
             } else if (gOuM.equals("3")) {
                 sortieCrea = false;
