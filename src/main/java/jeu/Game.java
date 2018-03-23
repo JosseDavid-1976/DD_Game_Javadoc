@@ -33,14 +33,14 @@ private static ArrayList<Sorts> sortsList = new ArrayList<Sorts>();
         System.out.println("<----------------------->");
         while (resteEnJeu) {
             Scanner sc = new Scanner(System.in);
-            System.out.println("Que voulez vous faire:\n\t1- Créer un personnage\n\t2- Afficher/Modifier/Attaquer\n\t3- Quitter ");
+            System.out.println("Que voulez vous faire:\n\t1- Créer un personnage\n\t2- Afficher/Modifier/Attaquer/Créer Arme ou Sort\n\t3- Quitter ");
             String choixUtilisateur = sc.nextLine();
             if (choixUtilisateur.equals("1")) {
 //                Personnage perso = creePerso();
                 personnages.add(creePerso());//stockage de mes personnages dans un tableau
 //                armesList.add(perso.getArme());
             } else if (choixUtilisateur.equals("2")) {
-                System.out.println("Que voulez-vous faire maintenant :\n\t1- Afficher les personnages\n\t2- Modifier Guerrier\n\t3- Modifier Magicien\n\t4- Attaquer\n\t5- Afficher les armes\n\t6- Afficher les sorts\n\t7- Crée une arme\n\t8- Sortir");
+                System.out.println("Que voulez-vous faire maintenant :\n\t1- Afficher les personnages\n\t2- Modifier Guerrier\n\t3- Modifier Magicien\n\t4- Attaquer\n\t5- Afficher les armes\n\t6- Afficher les sorts\n\t7- Crée une arme\n\t8- Crée un sort\n\t9- Sortir");
                 String ChoixPerso = sc.nextLine();
                 boolean goMenu = true;
                 while (goMenu) {
@@ -77,7 +77,10 @@ private static ArrayList<Sorts> sortsList = new ArrayList<Sorts>();
                     }else if (ChoixPerso.equals("7")) {////crée une arme
                         creeArme();
                         goMenu = false;
-                    } else if (ChoixPerso.equals("8")) {////sortie
+                    }else if (ChoixPerso.equals("8")) {////crée un sort
+                        creeSort();
+                        goMenu = false;
+                    } else if (ChoixPerso.equals("9")) {////sortie
                         goMenu = false;
                     } else {////erreur de saisie
                         System.out.println("<----------------------->");
@@ -362,6 +365,17 @@ private static ArrayList<Sorts> sortsList = new ArrayList<Sorts>();
         Armes armes = new Armes(nomArme, puissance);
         armesList.add(armes);
         return armes;
+    }
+    private static Sorts creeSort(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("<----------------------->");
+        System.out.println("Nom du sort :");
+        String nomSort = sc.nextLine();
+        System.out.println("Puissance du sort :");
+        int puissance = scannerInput.nextInt();
+        sorts = new Sorts(nomSort, puissance);
+        sortsList.add(sorts);
+        return sorts;
     }
 }
 
